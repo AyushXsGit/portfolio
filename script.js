@@ -1,16 +1,21 @@
-let words=["Web Developer","3D Creator","Student"];
+let words=["Web Developer","3D Artist","Future Engineer"];
 let wi=0,ci=0;
-
 function type(){
-  if(ci<words[wi].length){
-    document.querySelector(".typing").innerHTML+=words[wi][ci++];
-    setTimeout(type,80);
-  }else{
-    setTimeout(()=>{
-      document.querySelector(".typing").innerHTML="";
-      ci=0;wi=(wi+1)%words.length;
-      type();
-    },1500);
-  }
-}
+if(ci<words[wi].length){
+document.querySelector(".typing").innerHTML+=words[wi][ci++];
+setTimeout(type,80);
+}else{
+setTimeout(()=>{
+document.querySelector(".typing").innerHTML="";
+ci=0;wi=(wi+1)%words.length;
 type();
+},1500);
+}}
+type();
+
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".reveal").forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100){
+el.classList.add("active");
+}});
+});
